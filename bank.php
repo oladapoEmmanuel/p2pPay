@@ -38,7 +38,7 @@ if (empty($_POST["username"]) || empty($_POST["amount"])) {
 
 		<div class="row">
 			<div class="col-md-2">
-				<a href="adduser.php"> <input type="button" name="add_user" value="ADD USERS" class="btn btn-primary"> </a>
+				<a href="index.php"> <input type="button" name="add_user" value="ADD USERS" class="btn btn-primary"> </a>
 				
 			</div>
 
@@ -77,7 +77,7 @@ if (empty($_POST["username"]) || empty($_POST["amount"])) {
 
 <button type="submit" #deposit class="btn btn-info">CLICK TO DEPOSIT</button><br>
 <?php if (isset($deposit)) {
-	echo $deposit;
+	echo " Dear ".$_POST['username']. ",". " ". "$". $_POST['amount']. " ". $deposit;
 } ?>
 
   </form>

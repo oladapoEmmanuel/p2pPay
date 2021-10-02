@@ -10,13 +10,17 @@ if (!empty($_POST)) {
 	$amount = $_POST['amount'];
 
 	$obj = new Transaction;
+	$validate = $obj->Balance($_POST['sender']);
+
+	if ($validate['balance'] < $_POST['amount']) {
+	die ("You dont have sufficient funds to perfrom this transaction!");
+
+}else{
 	$deposit = $obj->Send($sender, $receiver, $amount);
-	
+}
 
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -34,11 +38,11 @@ if (!empty($_POST)) {
 	<div class="row justify-content-center">
 
 
-		<div class="col-5">
+		<div class="col-6">
 <br>
 	<form class="form-group" action="" method="post">
 
-		<h2>DEPOSIT FUNDS</h2>
+		<h3>SEND FUNDS TO ANOTHER USER</h3>
 		<p> Kindly enter the username and amount to deposit </p>
 
 <div><label> SENDER USERNAME </label></div> <div><input type="text" name="sender" class="form-control-lg" required></div> <br>
@@ -48,8 +52,11 @@ if (!empty($_POST)) {
 <div><label> AMOUNT </label></div> <div><input type="number" step="any" name="amount" class="form-control-lg" required></div> <br>
 
 <button type="submit" class="btn btn-info">CLICK TO DEPOSIT</button><br>
-<?php if (isset($deposit)) {
-	echo "$".$_POST['amount']. " ". $deposit;
+
+<?php 
+
+if (isset($deposit)) {
+	echo "$".$_POST['amount']. " ". $deposit. " to ". $_POST['receiver'];
 } ?>
 
   </form>

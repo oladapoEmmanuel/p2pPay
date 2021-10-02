@@ -51,18 +51,22 @@ class Transaction{
 
 	function Deposit($amount, $username){
 		// query to deposit
-		$sql = "UPDATE user SET credit = '$amount' WHERE username = '$username'";
+		$sql = "UPDATE user SET credit = ('$amount' + credit) WHERE username = '$username'";
 		$qres = $this->dbcon->query($sql);
 
-		if ($this->dbcon->error) {
-			$result = "System error!".$this->dbcon->error;
-
-		}else{
-			$result = $amount."$"." Deposited successfully to ". $username;
-
-
+        if($this->dbcon->affected_rows == 1){
+			$sql2 = "UPDATE user SET balance = credit WHERE username = '$username'";
+			$addqres = $this->dbcon->query($sql2);
+			if ($this->dbcon->error) {
+				$result = "System error!".$this->dbcon->error;
+			}else{
+			$result = "Deposit Successfully into your account!";
+			
 		}
+
 		return $result;
+	
+	}
 	
 	}
 
@@ -71,8 +75,9 @@ class Transaction{
 
 	function Send($sender, $receiver, $amount){
 		// query to send money to another user
-		$sql = "UPDATE user SET debit = (debit- $amount), balance = (credit+debit) WHERE username='$sender'";
+		$sql = "UPDATE user SET debit = $amount, balance = (balance - $amount) WHERE username='$sender'";
 		$qres = $this->dbcon->query($sql);
+
 
 		if($this->dbcon->affected_rows == 1){
 			$sql2 = "UPDATE user SET credit = (credit + $amount), balance = (credit-debit) WHERE username='$receiver'";
@@ -80,7 +85,7 @@ class Transaction{
 			if ($this->dbcon->error) {
 				$result = "System error!".$this->dbcon->error;
 			}else{
-			$result = "Deposited Successfully!";
+			$result = "has been sent Successfully";
 			
 			//redirect to bank page
 			//header("Location: bank.php");
@@ -95,7 +100,7 @@ class Transaction{
 // function/method to transfer money out of the to another bank user
 	function Transfer($sender, $amount){
 		// query to send money to another user
-		$sql = "UPDATE user SET debit = (debit- $amount), balance = (credit+debit), transfer = $amount WHERE username='$sender'";
+		$sql = "UPDATE user SET debit = $amount, balance = (balance - $amount), transfer = $amount WHERE username='$sender'";
 		$qres = $this->dbcon->query($sql);
 
 		if($this->dbcon->affected_rows == 1){

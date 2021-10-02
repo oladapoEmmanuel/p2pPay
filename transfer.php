@@ -12,9 +12,15 @@ if (empty($_POST["sender"]) || empty($_POST["amount"])) {
 	$amount = $_POST['amount'];
 
 	$obj = new Transaction;
+	$validate = $obj->Balance($_POST['sender']);
+
+	if ($validate['balance'] < $_POST['amount']) {
+	$msg = "You do not have sufficient funds to transfer!";
+
+}else{
 	$transfer = $obj->Transfer($sender, $amount);
+}
 	
-	//echo $deposit;
 }
 
 ?>
@@ -42,16 +48,25 @@ if (empty($_POST["sender"]) || empty($_POST["amount"])) {
 			</div>
 
 
-		<div class="col-5">
+			<div class="col-md-3">
+				<a href="bank.php"> <input type="button" name="balance" value="BACK TO TRANSACTION" class="btn btn-success"> </a>
+				
+			</div>
+
+
+		<div class="col-7">
 <br>
 	<form class="form-group" action="" method="post">
 
-		<h2>DEPOSIT FUNDS</h2>
+		<h2>TRANSFER FUNDS</h2>
 		<p> Kindly enter the username and amount to Transfer </p>
 
 <div><label> SENDER USERNAME </label></div> <div><input type="text" name="sender" class="form-control-lg" required></div> <br>
 
 <div><label> AMOUNT </label></div> <div><input type="number" step="any" name="amount" class="form-control-lg" required></div> <br>
+<?php if (isset($msg)) {
+	echo "Dear ". $_POST['sender'].$msg;
+} ?>
 
 <button type="submit" class="btn btn-info">CLICK TO TRANSFER MONEY</button><br>
 <?php if (isset($transfer)) {
