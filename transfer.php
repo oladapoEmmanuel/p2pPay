@@ -42,19 +42,19 @@ if (empty($_POST["sender"]) || empty($_POST["amount"])) {
 
 	<div class="row justify-content-center">
 
-		<div class="col-md-3">
+		<div class="col-sm-3 col-md-3">
 				<a href="balance.php"> <input type="button" name="balance" value="CHECK BALANCE" class="btn btn-primary"> </a>
 				
 			</div>
 
 
-			<div class="col-md-3">
+			<div class="col-sm-3 col-md-3">
 				<a href="bank.php"> <input type="button" name="balance" value="BACK TO TRANSACTION" class="btn btn-success"> </a>
 				
 			</div>
 
 
-		<div class="col-7">
+		<div class="col-sm-7 col-md-7">
 <br>
 	<form class="form-group" action="" method="post">
 

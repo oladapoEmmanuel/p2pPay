@@ -27,7 +27,7 @@ if (!empty($_POST)) {
 	<div class="container">
 
 	<div class="row justify-content-center">
-		<div class="col-md-6">
+		<div class="col-sm-6 col-md-6">
 			<h5 class="alert alert-primary">WELCOME, KINDLY ENTER YOUR USERNAME TO REGISTER AND STARTS PERFORMING BANKING TRANSACTIONS</h5>
 		</div>
 		
@@ -35,7 +35,7 @@ if (!empty($_POST)) {
 
 	<div class="row justify-content-center">
 
-		<div class="col-5">
+		<div class="col-sm-5 col-md-5">
 			<a href="bank.php"> <button type="button" class="btn-success"> Perform Transactions </button> </a>
 
 	<form class="form-group" action="" method="post">

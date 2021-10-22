@@ -38,7 +38,7 @@ if (!empty($_POST)) {
 	<div class="row justify-content-center">
 
 
-		<div class="col-6">
+		<div class="col-sm-6 col-md-6">
 <br>
 	<form class="form-group" action="" method="post">
 
@@ -65,7 +65,7 @@ if (isset($deposit)) {
 </div>
 
 
-		<div class="col-md-6">
+		<div class="col-sm-6 col-md-6">
 				<a href="balance.php"> <input type="button" name="balance" value="CHECK BALANCE" class="btn btn-primary"> </a>
 
 				<a href="bank.php"> <input type="button" name="balance" value="BACK TO TRANSACTION" class="btn btn-success"> </a>

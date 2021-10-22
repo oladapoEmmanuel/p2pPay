@@ -16,7 +16,7 @@
 
 	<div class="row justify-content-center">
 
-		<div class="col-5">
+		<div class="col-sm-5 col-md-5">
 
 	<form class="form-group" action="" method="post">
 
@@ -64,7 +64,7 @@ else{
 ?>
 
 
-			<div class="col-md-3">
+			<div class="col-sm-3 col-md-3">
 				<a href="bank.php"> <input type="button" name="balance" value="BACK TO TRANSACTION" class="btn btn-success"> </a>
 				
 			</div>

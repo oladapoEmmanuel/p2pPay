@@ -37,27 +37,27 @@ if (empty($_POST["username"]) || empty($_POST["amount"])) {
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-sm-2 col-md-2">
 				<a href="index.php"> <input type="button" name="add_user" value="ADD USERS" class="btn btn-primary"> </a>
 				
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-sm-2 col-md-2">
 				<a href="#"> <input type="button" name="dep" id="deposit" value="DEPOSIT MONEY" class="btn btn-success"> </a>
 				
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-sm-2 col-md-2">
 				<a href="send.php"> <input type="button" name="send" value="SEND MONEY" class="btn btn-danger"> </a>
 				
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-sm-3 col-md-3">
 				<a href="balance.php"> <input type="button" name="balance" value="CHECK BALANCE" class="btn btn-primary"> </a>
 				
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-sm-3 col-md-3">
 				<a href="transfer.php"> <input type="button" name="transfer" value="TRANSFER MONEY" class="btn btn-secondary"> </a>
 				
 			</div>
@@ -65,7 +65,7 @@ if (empty($_POST["username"]) || empty($_POST["amount"])) {
 
 	<div class="row justify-content-center">
 
-		<div class="col-5">
+		<div class="col-sm-5 col-md-5">
 <br>
 	<form class="form-group" action="" method="post">
 
