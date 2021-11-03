@@ -21,4 +21,3 @@ The Application performs basic banking operations. The functionalilies are as fo
 -> The transfer.php file contains code to transfer money out of the application.
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5ec12edc-152a-423f-b970-f9c8ccaaabbe/deploy-status)](https://app.netlify.com/sites/p2pbanking/deploys)
